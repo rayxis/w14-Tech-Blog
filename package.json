@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "express": "^4.18.3",
+    "handlebars": "^4.7.8",
+    "mysql2": "^3.9.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "w14-tech-blog",
+  "description": "A blog about techs",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
