@@ -9,7 +9,7 @@ const sequelize      = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Local modules
-const routes = require('./src/routes/index');
+const routes = require('./routes/index');
 
 // Setup handlebars
 const handlebars = require('express-handlebars');
