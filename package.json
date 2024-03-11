@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.18.3",
     "express-handlebars": "^7.1.2",
     "express-sessions": "^1.0.6",
@@ -8,6 +9,7 @@
     "sequelize": "^6.37.1"
   },
   "scripts": {
+    "seed": "node seeds/seed.js",
     "start": "node server.js"
   },
   "name": "w14-tech-blog",
