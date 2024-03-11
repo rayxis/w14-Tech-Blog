@@ -3,43 +3,57 @@ const path = require('path');
 
 // External modules
 require('dotenv').config();
-const express        = require('express');
-const session        = require('express-sessions');
-const sequelize      = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const express = require('express');
+const routes  = require('./controllers');
+const session = require('express-session');
 
-// Local modules
-const routes = require('./routes/index');
+// Directory definitions
+const dirs = {
+	data:   path.join(__dirname, 'data'),
+	public: path.join(__dirname, 'public'),
+	views:  path.join(__dirname, 'views')
+};
 
-// Setup handlebars
+// Set up handlebars
 const handlebars = require('express-handlebars');
 const hbs        = handlebars.create({});
 
-// Setup the application port
+// Set up the application port
 const PORT = process.env.PORT || 3000;
 
+// Database and session management
+const sequelize      = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // Set up sessions with cookies
 const sess = {
 	secret:            process.env.SESSION_SECRET,
 	cookie:            {
-		maxAge: 24 * 60 * 60 * 1000 // expires after 1 day
+		httpOnly: true,
+		maxAge:   24 * 60 * 60 * 1000, // 1 Day
+		sameSite: 'strict',
+		secure:   false
 	},
 	resave:            false,
 	saveUninitialized: true,
 	store:             new SequelizeStore({db: sequelize})
 };
+
 // Instantiate and configure Express
-const app  = express();
+const app = express();
 app.engine('handlebars', hbs.engine)
 	// Set the views and data directories
    .set('view engine', 'handlebars')
-   .set('views', path.join(__dirname, '/src/views'))
-   .set('data', path.join(__dirname, '/src/data'))
+   .set('views', dirs.views)
+   .set('data', dirs.data)
 	// Use sessions, parse JSON, serve static files and include routes.
    .use(session(sess))
    .use(express.json())
-   .use(express.static('public'))
+   .use(express.urlencoded({extended: true}))
+   .use(express.static(dirs.public))
    .use(routes);
+
+// Synchronize the session store
+sess.store.sync();
 
 // Start the server
 const server = app.listen(PORT, () => {
@@ -60,9 +74,11 @@ process.on('uncaughtException', (err) => {
  *
  * @param {number} code - An optional exit code, defaults to 0
  */
-function handleExit(code = 0) {
+// function handleExit(code = 0) {
+function handleExit() {
 	server.close(() => {
 		console.log('\nServer closed');
-		process.exit(code);
+		// process.exit(code);
+		process.exit();
 	});
 }
