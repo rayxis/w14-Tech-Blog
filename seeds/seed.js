@@ -6,23 +6,33 @@ const User      = require('../models/User');
 
 // File paths
 const paths = {
-	postData: './PostData.json',
-	userData: './UserData.json'
+	postData: './seeds/PostData.json',
+	userData: './seeds/UserData.json'
 };
 
 // Seeds data into the database
 (async () => {
-	// Sync database
-	await sequelize.sync({force: true});
-	console.log('\\n----- DATABASE SYNCED -----\n');
+	try {
+		// Sync database
+		await sequelize.sync({force: true});
+		console.log('\n----- DATABASE SYNCED -----\n');
 
-	// Seed user data
-	const userData = JSON.parse(await fs.readFile(paths.userData, 'utf8'));
-	await User.bulkCreate(userData, {individualHooks: true});
-	console.log('\\n----- USERS SEEDED -----\n');
+		// Seed user data
+		const userData = JSON.parse(await fs.readFile(paths.userData, 'utf8'));
+		await User.bulkCreate(userData, {individualHooks: true});
+		console.log('\n----- USERS SEEDED -----\n');
 
-	// Seed post data
-	const postData = JSON.parse(await fs.readFile(paths.postData, 'utf8'));
-	await Post.bulkCreate(postData);
-	console.log('\\n----- POSTS SEEDED -----\n');
+		// Seed post data
+		const postData = JSON.parse(await fs.readFile(paths.postData, 'utf8'));
+		await Post.bulkCreate(postData);
+		console.log('\n----- POSTS SEEDED -----\n');
+
+		// Close the database connection
+		await sequelize.close();
+		console.log('\n----- DATABASE CONNECTION CLOSED -----\n');
+	} catch (error) {
+		console.log('\n-----ERROR SEEDED -----\n');
+	} finally {
+		process.exit();
+	}
 })();
