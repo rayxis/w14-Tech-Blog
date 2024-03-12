@@ -6,8 +6,8 @@ const User      = require('../models/User');
 
 // File paths
 const paths = {
-	postData: './seeds/PostData.json',
-	userData: './seeds/UserData.json'
+	postData: './seeds/Post-data.json',
+	userData: './seeds/User-data.json'
 };
 
 // Seeds data into the database
@@ -32,6 +32,7 @@ const paths = {
 		console.log('\n----- DATABASE CONNECTION CLOSED -----\n');
 	} catch (error) {
 		console.log('\n-----ERROR SEEDED -----\n');
+		console.error(error);
 	} finally {
 		process.exit();
 	}
