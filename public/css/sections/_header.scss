@@ -1,0 +1,26 @@
+@use "../values" as x; // Predefined values and settings
+
+.page-header {
+	display:         flex;
+	flex-flow:       column;
+	align-items:     center;
+	justify-content: center;
+	padding:         map-get(x.$sizes, "medium");
+
+	&__title {
+		font-family: x.$font-main;
+		font-size:   map-get(x.$font-sizes, "medium-large");
+	}
+}
+
+.menu {
+	display:   flex;
+	flex-flow: row nowrap;
+	gap:  map-get(x.$sizes, "medium");
+	padding:   map-get(x.$sizes, "medium");
+
+	&__item {
+		font-family: x.$font-main;
+		font-size:   map-get(x.$font-sizes, "medium-small");
+	}
+}

@@ -1,0 +1,39 @@
+$colors:        (
+		                border: rgba(0, 0, 0, 0.1),
+		                link: green,
+		                shadow: rgba(0, 0, 0, 0.3)
+                );
+
+// Fonts
+$font-main:     Oswald, sans-serif;
+$font-sizes:    ( // @formatter:off
+		                xlarge:       3rem,
+		                large:        2rem,
+		                medium-large: 1.5rem,
+		                medium:       1rem,
+		                medium-small: 0.9rem,
+		                small:        0.7rem,
+		                tiny:         0.6rem
+                ); // @formatter:on
+
+// Shadows (box-shadow, text-shadow, and filter: drop-shadow())
+$shadows:   ( // @formatter:off
+		            none:         0 0 0 map-get($colors, "shadow"),
+		            small:        0 1.5px 3px map-get($colors, "shadow"),
+		            medium:       0 2.5px 5px map-get($colors, "shadow"),
+		            medium-large: 0 5px 7px map-get($colors, "shadow"),
+		            large:        0 5px 10px map-get($colors, "shadow")
+            ); // @formatter:on
+
+// Sizing
+$sizes: ( // @formatter:off
+		        xlarge:       50px,
+		        larger:       40px,
+		        large:        25px,
+		        medium-large: 15px,
+		        medium:       10px,
+		        small:        5px,
+		        xsmall:       4px
+        ); // @formatter:on
+
+$header-height: 50px;

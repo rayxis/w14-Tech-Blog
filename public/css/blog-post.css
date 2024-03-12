@@ -1,0 +1,14 @@
+.blog-form .form__input-group {
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 100%;
+}
+.blog-form .form__input {
+  flex-grow: 1;
+}
+.blog-form .form__textarea {
+  width: inherit;
+  height: 200px;
+}
+
+/*# sourceMappingURL=blog-post.css.map */

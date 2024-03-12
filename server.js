@@ -14,10 +14,6 @@ const dirs = {
 	views:  path.join(__dirname, 'views')
 };
 
-// Set up handlebars
-const handlebars = require('express-handlebars');
-const hbs        = handlebars.create({});
-
 // Set up the application port
 const PORT = process.env.PORT || 3000;
 
@@ -25,7 +21,7 @@ const PORT = process.env.PORT || 3000;
 const sequelize      = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // Set up sessions with cookies
-const sess = {
+const sess           = {
 	secret:            process.env.SESSION_SECRET,
 	cookie:            {
 		httpOnly: true,
@@ -38,8 +34,14 @@ const sess = {
 	store:             new SequelizeStore({db: sequelize})
 };
 
+// Set up handlebars
+const handlebars = require('express-handlebars');
+const hbs        = handlebars.create({
+	                                     extname: 'handlebars',
+	                                     helpers: require('./utils/handlebarsHelper')
+                                     });
 // Instantiate and configure Express
-const app = express();
+const app        = express();
 app.engine('handlebars', hbs.engine)
 	// Set the views and data directories
    .set('view engine', 'handlebars')

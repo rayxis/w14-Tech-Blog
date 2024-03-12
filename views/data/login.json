@@ -1,0 +1,34 @@
+{
+	"action":     "?",
+	"class":      "login",
+	"title":      "Login",
+	"fields":     [
+		{
+			"type":  "email",
+			"label": "Email",
+			"id":    "email",
+			"name":  "email"
+		},
+		{
+			"type":  "password",
+			"label": "Password",
+			"id":    "password",
+			"name":  "password"
+		}
+	],
+	"buttons":    [
+		{
+			"type":  "submit",
+			"class": "form__button login-form__button--submit"
+		},
+		{
+			"type":  "reset",
+			"class": "form__button login-form__button--reset"
+		}
+	],
+	"footerLink": {
+		"href":  "/register",
+		"class": "link form__link",
+		"text":  "Not registered yet?"
+	}
+}

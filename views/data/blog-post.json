@@ -1,0 +1,29 @@
+{
+	"action":  "?",
+	"class":   "blog",
+	"title":   "Blog Post",
+	"fields":  [
+		{
+			"type":  "text",
+			"label": "Title",
+			"id":    "title",
+			"name":  "title"
+		},
+		{
+			"type":  "textarea",
+			"label": "Body",
+			"id":    "body",
+			"name":  "body"
+		}
+	],
+	"buttons": [
+		{
+			"type":  "submit",
+			"class": "form__button login-form__button--submit"
+		},
+		{
+			"type":  "reset",
+			"class": "form__button login-form__button--reset"
+		}
+	]
+}

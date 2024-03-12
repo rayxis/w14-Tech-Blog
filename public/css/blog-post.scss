@@ -1,0 +1,16 @@
+@use "values" as x; // Predefined values and settings
+
+.blog-form .form {
+		&__input-group {
+			flex-wrap: wrap;
+			gap:       map-get(x.$sizes, "small");
+			width:     100%;
+		}
+
+		&__input { flex-grow: 1; }
+
+		&__textarea {
+			width:  inherit;
+			height: 200px;
+		}
+}

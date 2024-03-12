@@ -1,0 +1,56 @@
+@use "../values" as x; // Predefined values and settings
+
+.content {
+}
+
+.form {
+	// Layout
+	display:         flex;
+	flex-flow:       column nowrap;
+	align-items:     center;
+	justify-content: center;
+	gap:             map-get(x.$sizes, "medium");
+	width:           500px;
+	margin:          auto;
+	padding:         map-get(x.$sizes, "medium");
+	// Borders
+	border:          1px solid map-get(x.$colors, "border");
+	border-radius:   map-get(x.$sizes, "small");
+	box-shadow:      map-get(x.$shadows, "medium-large");
+	// Font
+	font-family:     x.$font-main;
+
+	&__button {
+		&:hover { cursor: pointer; }
+	}
+	&__button,
+	&__input,
+	&__textarea {
+		padding:       map-get(x.$sizes, "small");
+		border:        1px solid map-get(x.$colors, "border");
+		border-radius: map-get(x.$sizes, "small");
+	}
+
+	&__input-group {
+		display:     flex;
+		flex-wrap:   nowrap;
+		align-items: center;
+	}
+	&__label {
+		display:   inline-block;
+		width:     60px;
+		font-size: map-get(x.$font-sizes, "small");
+	}
+
+	&__footer { font-size: map-get(x.$font-sizes, "small"); }
+	&__title { font-size: map-get(x.$font-sizes, "medium"); }
+}
+
+.link {
+	color:           map-get(x.$colors, "link");
+	text-decoration: none;
+
+	&:hover {
+		cursor: pointer;
+	}
+}

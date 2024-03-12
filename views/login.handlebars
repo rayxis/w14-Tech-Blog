@@ -1,0 +1,20 @@
+<form class="form login-form" action="?" method="POST">
+	<header class="form__header login-form__header">
+		<h1 class="form__title login-form__title">{{loginForm.title}}</h1>
+	</header>
+	<div class="form__input-group login-form__input-group">
+		<label class="form__label login-form__label" for="email">Email</label>
+		<input class="form__input login-form__input" type="email" id="email" name="email"/>
+	</div>
+	<div class="form__input-group login-form__input-group">
+		<label class="form__label login-form__label" for="password">Password</label>
+		<input class="form__input login-form__input" type="password" id="password" name="password"/>
+	</div>
+	<div class="form__input-group login-form__button-group">
+		<input class="form__button login-form__button--submit" type="submit"/>
+		<input class="form__button login-form__button--reset" type="reset"/>
+	</div>
+	<section class="form__footer login-form__register">
+		<a href="/register" class="link login-form__register-link">Not registered yet?</a>
+	</section>
+</form>
