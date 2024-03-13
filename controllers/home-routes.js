@@ -2,7 +2,7 @@ const fs                    = require('fs').promises;
 const router                = require('express').Router();
 const {Comment, Post, User} = require('../models');
 
-const pageData = {
+const pageData      = {
 	title:  'Tech Blog',
 	css:    ['styles'],
 	menu:   [
@@ -11,6 +11,21 @@ const pageData = {
 		{name: 'Logout', link: '/logout'}
 	],
 	footer: 'Coded and designed by Ray Beliveau in 2024'
+};
+// Query Data for Blog Posts
+const blogQueryData = {
+	include: [
+		{
+			model:      User,
+			attributes: {exclude: ['password']}
+		},
+		{
+			model:   Comment,
+			include: [{
+				model:      User,
+				attributes: {exclude: ['password']}
+			}]
+		}]
 };
 
 /**
@@ -29,11 +44,13 @@ function formatDate(postObj) {
 
 // Query for all blog posts from the DB and render the main blog page
 router.get('/', async (req, res) => {
-	      const postData     = await Post.findAll({include: [{model: User}, {model: Comment, include: [{model: User}]}]});
+	      // Get all the posts and include the user (sans password) for both the post and any comments.
+	      const postData     = await Post.findAll(blogQueryData);
+	      // Format the date for the post
 	      pageData.blogPosts = postData.map(post => formatDate(post.get({plain: true})));
 	      pageData.css.push('blog');
 
-		  // Clean up when finished
+	      // Clean up when finished
 	      res.on('finish', () => {
 		      delete pageData.blogPosts;
 		      pageData.css.pop();
@@ -42,13 +59,12 @@ router.get('/', async (req, res) => {
 
 	// Query for specific blog post using ID and render the post page
 	  .get('/blog/:id', async (req, res) => {
+		  // Find the post using the id, include the user (sans password) for both the post and any comments.
 		  const postData         = await Post.findOne({
-			                                              where:   {id: req.params.id},
-			                                              include: [{model: User}, {
-				                                              model:   Comment,
-				                                              include: [{model: User}]
-			                                              }]
+			                                              where: {id: req.params.id},
+			                                              ...blogQueryData.blogPosts
 		                                              });
+		  // Format the date for the post and comments
 		  pageData.blog          = formatDate(postData.get({plain: true}));
 		  pageData.blog.comments = pageData.blog.comments.map(comment => formatDate(comment));
 		  pageData.css.push('blog');

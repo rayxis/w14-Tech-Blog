@@ -25,7 +25,7 @@ const sess           = {
 	secret:            process.env.SESSION_SECRET,
 	cookie:            {
 		httpOnly: true,
-		maxAge:   24 * 60 * 60 * 1000, // 1 Day
+		maxAge:   60 * 60 * 1000, // 1 Hour
 		sameSite: 'strict',
 		secure:   false
 	},
