@@ -1,4 +1,4 @@
-.blog {
+.blog, .comments {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -6,28 +6,38 @@
   gap: 50px;
   font-family: Oswald, sans-serif;
 }
-.blog__post {
+.blog__post, .comments__post {
   width: 500px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.3);
 }
-.blog__post-header {
+.blog__post-header, .comments__post-header {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   padding: 10px;
 }
-.blog__post-author, .blog__post-date {
+.blog__post-footer, .comments__post-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
   font-size: 0.7rem;
 }
-.blog__post-body {
+.blog__post-author, .blog__post-date, .comments__post-author, .comments__post-date {
+  font-size: 0.7rem;
+}
+.blog__post-body, .comments__post-body {
   padding: 15px;
   font-size: 0.9rem;
 }
-.blog__post-title {
+.blog__post-title, .comments__post-title {
   width: 100%;
   font-size: 1rem;
+}
+
+.comments {
+  gap: 10px;
 }
 
 /*# sourceMappingURL=blog.css.map */

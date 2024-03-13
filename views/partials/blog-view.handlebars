@@ -1,0 +1,15 @@
+<article class="blog__post">
+	<header class="blog__post-header">
+		<h2 class="blog__post-title">{{title}}</h2>
+		<div class="blog__post-author">{{user.first_name}} {{user.last_name}}</div>
+		<time class="blog__post-date">{{date}}</time>
+	</header>
+	<p class="blog__post-body">{{body}}</p>
+	<footer class="blog__post-footer">
+		{{#ifCond @index '>=' 0}}
+			<a class="link blog__post-link" href="/blog/{{id}}">{{comments.length}} comments</a>
+		{{else}}
+			{{comments.length}} comments
+		{{/ifCond}}
+	</footer>
+</article>

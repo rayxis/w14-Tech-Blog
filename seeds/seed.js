@@ -1,6 +1,7 @@
 // Required libraries
 const fs        = require('fs').promises;
 const sequelize = require('../config/connection');
+const Comment   = require('../models/Comment');
 const Post      = require('../models/Post');
 const User      = require('../models/User');
 
@@ -30,7 +31,7 @@ const paths = {
 
 		// Seed post data
 		const commentData = JSON.parse(await fs.readFile(paths.commentData, 'utf8'));
-		await Post.bulkCreate(commentData);
+		await Comment.bulkCreate(commentData);
 		console.log('\n----- COMMENTS SEEDED -----\n');
 
 		// Close the database connection

@@ -1,0 +1,14 @@
+<section class="comments">
+	<header class="comments-header">
+		<h3 class="comments-title">Comments</h3>
+	</header>
+	{{#each comments}}
+		<article class="comments__post">
+			<header class="comments__post-header">
+				<div class="comments__post-author">{{user.first_name}} {{user.last_name}}</div>
+				<time class="comments__post-date">{{date}}</time>
+			</header>
+			<p class="comments__post-body">{{body}}</p>
+		</article>
+	{{/each}}
+</section>

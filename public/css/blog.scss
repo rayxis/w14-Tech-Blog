@@ -1,13 +1,14 @@
 @use "values" as x; // Predefined values and settings
 
-.blog {
+.blog, .comments {
 	display:         flex;
 	flex-flow:       column nowrap;
 	align-items:     center;
 	justify-content: center;
+
 	gap:             map-get(x.$sizes, "xlarge");
 
-	font-family: x.$font-main;
+	font-family:     x.$font-main;
 
 	&__post {
 		width:         500px;
@@ -22,6 +23,12 @@
 			justify-content: space-between;
 			padding:         map-get(x.$sizes, "medium");
 		}
+		&-footer {
+			display:         flex;
+			justify-content: flex-end;
+			padding:         map-get(x.$sizes, "medium");
+			font-size:       map-get(x.$font-sizes, "small");
+		}
 
 		&-author,
 		&-date {
@@ -29,13 +36,15 @@
 		}
 
 		&-body {
-			padding: map-get(x.$sizes, "medium-large");
-			font-size:  map-get(x.$font-sizes, "medium-small");
+			padding:   map-get(x.$sizes, "medium-large");
+			font-size: map-get(x.$font-sizes, "medium-small");
 		}
 
 		&-title {
-			width: 100%;
-			font-size:  map-get(x.$font-sizes, "medium");
+			width:     100%;
+			font-size: map-get(x.$font-sizes, "medium");
 		}
 	}
 }
+
+.comments { gap: map-get(x.$sizes, "medium");}

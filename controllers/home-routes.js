@@ -1,20 +1,7 @@
-const fs           = require('fs').promises;
-const res          = require('express/lib/response');
-const router       = require('express').Router();
-const {Post, User} = require('../models');
+const fs                    = require('fs').promises;
+const router                = require('express').Router();
+const {Comment, Post, User} = require('../models');
 
-// Date formatting
-const dateOptions = {
-	weekday: 'short',
-	year:    'numeric',
-	month:   'short',
-	day:     'numeric',
-	hour:    '2-digit',
-	minute:  '2-digit',
-	second:  '2-digit'
-};
-
-// Default page data for all pages.
 const pageData = {
 	title:  'Tech Blog',
 	css:    ['styles'],
@@ -26,41 +13,70 @@ const pageData = {
 	footer: 'Coded and designed by Ray Beliveau in 2024'
 };
 
-// Page routes
-router.get('/', async (req, res) => {
-	      // List all categories and include Product model.
-	      const postData = await Post.findAll({include: [{model: User}]});
+/**
+ * Takes a post object and adds a formatted date string to it.
+ * @param {*} postObj - The blog post object
+ * @returns {*} - The blog post object with added formatted date
+ */
+function formatDate(postObj) {
+	const dateOptions = {
+		weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+		hour:    '2-digit', minute: '2-digit', second: '2-digit'
+	};
+	postObj.date      = (new Date(postObj.date)).toLocaleString('en-US', dateOptions);
+	return postObj;
+}
 
-	      // Convert the Sequelize model instances into plain JavaScript objects.
-	      pageData.blogPosts = postData.map(post => {
-		      const postObj = post.get({plain: true});
-		      postObj.date  = (new Date(postObj.date)).toLocaleString('en-US', dateOptions);
-		      // Return the result
-		      return postObj;
-	      });
+// Query for all blog posts from the DB and render the main blog page
+router.get('/', async (req, res) => {
+	      const postData     = await Post.findAll({include: [{model: User}, {model: Comment, include: [{model: User}]}]});
+	      pageData.blogPosts = postData.map(post => formatDate(post.get({plain: true})));
 	      pageData.css.push('blog');
-	      // Render the page
-	      res.render('blog', pageData);
+
+		  // Clean up when finished
+	      res.on('finish', () => {
+		      delete pageData.blogPosts;
+		      pageData.css.pop();
+	      }).render('blog', pageData);
       })
-      .get('/blog/:id', (req, res) => {
-	      res.render('login', pageData);
-      })
-	// Blog Post
+
+	// Query for specific blog post using ID and render the post page
+	  .get('/blog/:id', async (req, res) => {
+		  const postData         = await Post.findOne({
+			                                              where:   {id: req.params.id},
+			                                              include: [{model: User}, {
+				                                              model:   Comment,
+				                                              include: [{model: User}]
+			                                              }]
+		                                              });
+		  pageData.blog          = formatDate(postData.get({plain: true}));
+		  pageData.blog.comments = pageData.blog.comments.map(comment => formatDate(comment));
+		  pageData.css.push('blog');
+
+		  // Clean up when finished
+		  res.on('finish', () => {
+			  delete pageData.blog;
+			  pageData.css.pop();
+		  }).render('blog', pageData);
+	  })
+
+	// Renders the form for creating a new blog post
 	  .get('/blog-post', async (req, res) => {
 		  pageData.css.push('blog-post');
 		  pageData.form = JSON.parse(await fs.readFile('./views/data/blog-post.json', 'utf8'));
 		  res.render('form', pageData);
 	  })
-	// Login
+
+	// Renders the form for login
 	  .get('/login', async (req, res) => {
 		  pageData.form = JSON.parse(await fs.readFile('./views/data/login.json', 'utf8'));
 		  res.render('form', pageData);
 	  })
-	// Register
+
+	// Renders the form for registration
 	  .get('/register', async (req, res) => {
 		  pageData.form = JSON.parse(await fs.readFile('./views/data/register.json', 'utf8'));
 		  res.render('form', pageData);
 	  });
 
-// Export the module
 module.exports = router;
