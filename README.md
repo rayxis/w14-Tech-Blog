@@ -2,7 +2,8 @@
 
 ## Description
 
-The aim of this project is to provide an interactive, seamless tech blog experience for users. The blog allows users to publish articles, blog posts, thoughts, and comments. Users can signup, login, logout, view posts by other authors, and interact by commenting on others' posts.
+The aim of this project is to provide an interactive, seamless tech blog experience for users. The blog allows users 
+to publish articles, blog posts, thoughts, and comments. Users can sign up, login, logout, view posts by other authors, and interact by commenting on others' posts.
 
 ### Features
 

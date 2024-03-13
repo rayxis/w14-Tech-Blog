@@ -6,8 +6,9 @@ const User      = require('../models/User');
 
 // File paths
 const paths = {
-	postData: './seeds/Post-data.json',
-	userData: './seeds/User-data.json'
+	commentData: './seeds/Comment-data.json',
+	postData:    './seeds/Post-data.json',
+	userData:    './seeds/User-data.json'
 };
 
 // Seeds data into the database
@@ -26,6 +27,11 @@ const paths = {
 		const postData = JSON.parse(await fs.readFile(paths.postData, 'utf8'));
 		await Post.bulkCreate(postData);
 		console.log('\n----- POSTS SEEDED -----\n');
+
+		// Seed post data
+		const commentData = JSON.parse(await fs.readFile(paths.commentData, 'utf8'));
+		await Post.bulkCreate(commentData);
+		console.log('\n----- COMMENTS SEEDED -----\n');
 
 		// Close the database connection
 		await sequelize.close();

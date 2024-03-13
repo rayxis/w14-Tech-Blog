@@ -1,0 +1,11 @@
+.comment-form .form__input-group {
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 100%;
+}
+.comment-form .form__textarea {
+  width: inherit;
+  height: 200px;
+}
+
+/*# sourceMappingURL=comment.css.map */

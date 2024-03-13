@@ -1,0 +1,23 @@
+{
+	"action":  "?",
+	"class":   "comment",
+	"title":   "Comment Post",
+	"fields":  [
+		{
+			"type":  "textarea",
+			"label": "Comment",
+			"id":    "comment-body",
+			"name":  "body"
+		}
+	],
+	"buttons": [
+		{
+			"type":  "submit",
+			"class": "form__button login-form__button--submit"
+		},
+		{
+			"type":  "reset",
+			"class": "form__button login-form__button--reset"
+		}
+	]
+}

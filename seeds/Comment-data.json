@@ -1,0 +1,142 @@
+[
+	{
+		"id": 1,
+		"body": "The lore behind the Marauder's Map is truly fascinating. It's a testament to the ingenuity of its creators.",
+		"user_id": 1,
+		"post_id": 1,
+		"date": "2024-03-21T15:56:46.000Z"
+	},
+	{
+		"id": 2,
+		"body": "I can't believe I never noticed all the detail in the Marauder's Map before. It's like a whole new world!",
+		"user_id": 2,
+		"post_id": 1,
+		"date": "2024-03-22T08:30:00.000Z"
+	},
+	{
+		"id": 3,
+		"body": "Potions class is always so challenging, but I'm finally getting the hang of it!",
+		"user_id": 1,
+		"post_id": 2,
+		"date": "2024-03-23T09:45:23.000Z"
+	},
+	{
+		"id": 4,
+		"body": "Quidditch tryouts were intense this year, but they were nothing compared to the actual matches!",
+		"user_id": 2,
+		"post_id": 3,
+		"date": "2024-03-24T14:22:05.000Z"
+	},
+	{
+		"id": 5,
+		"body": "Hagrid's magical creatures class was amazing today. I never knew there were so many magical beasts!",
+		"user_id": 1,
+		"post_id": 4,
+		"date": "2024-03-25T16:15:30.000Z"
+	},
+	{
+		"id": 6,
+		"body": "The Triwizard Tournament announcement was so unexpected. It's going to be an exciting year!",
+		"user_id": 2,
+		"post_id": 5,
+		"date": "2024-03-26T17:00:00.000Z"
+	},
+	{
+		"id": 7,
+		"body": "Dementors give me the creeps. I hope I never have to encounter one outside of class.",
+		"user_id": 1,
+		"post_id": 6,
+		"date": "2024-03-27T18:30:00.000Z"
+	},
+	{
+		"id": 8,
+		"body": "Time-Turners seem like they could be really useful, but also very dangerous. I'd be afraid to use one!",
+		"user_id": 2,
+		"post_id": 7,
+		"date": "2024-03-28T19:45:00.000Z"
+	},
+	{
+		"id": 9,
+		"body": "Winning the House Cup was the highlight of my year. Go Gryffindor!",
+		"user_id": 1,
+		"post_id": 8,
+		"date": "2024-03-29T20:30:00.000Z"
+	},
+	{
+		"id": 10,
+		"body": "Defense Against the Dark Arts is such a vital subject. I feel more prepared for the wizarding world every day.",
+		"user_id": 2,
+		"post_id": 9,
+		"date": "2024-03-30T21:15:00.000Z"
+	},
+	{
+		"id": 11,
+		"body": "The Marauder's Map has got to be one of the coolest things at Hogwarts. I wish I had one!",
+		"user_id": 1,
+		"post_id": 10,
+		"date": "2024-03-31T22:00:00.000Z"
+	},
+	{
+		"id": 12,
+		"body": "I heard that the Marauder's Map was created by Harry Potter's father and his friends. That's so cool!",
+		"user_id": 2,
+		"post_id": 1,
+		"date": "2024-04-01T10:30:00.000Z"
+	},
+	{
+		"id": 13,
+		"body": "I'm really looking forward to the next Quidditch match. The competition is fierce this year!",
+		"user_id": 1,
+		"post_id": 3,
+		"date": "2024-04-02T11:45:00.000Z"
+	},
+	{
+		"id": 14,
+		"body": "I can't believe how much I've learned about magical creatures this semester. Hagrid is the best!",
+		"user_id": 2,
+		"post_id": 4,
+		"date": "2024-04-03T12:30:00.000Z"
+	},
+	{
+		"id": 15,
+		"body": "The Triwizard Tournament is going to be so dangerous. I'm worried for the champions.",
+		"user_id": 1,
+		"post_id": 5,
+		"date": "2024-04-04T13:15:00.000Z"
+	},
+	{
+		"id": 16,
+		"body": "Learning to cast a Patronus was one of the most rewarding experiences I've had at Hogwarts.",
+		"user_id": 2,
+		"post_id": 6,
+		"date": "2024-04-05T14:00:00.000Z"
+	},
+	{
+		"id": 17,
+		"body": "I wonder what it would be like to go back in time and change things. Time-Turners are so intriguing!",
+		"user_id": 1,
+		"post_id": 7,
+		"date": "2024-04-06T15:30:00.000Z"
+	},
+	{
+		"id": 18,
+		"body": "I'm so proud of our house for winning the House Cup. It really brought everyone together.",
+		"user_id": 2,
+		"post_id": 8,
+		"date": "2024-04-07T16:45:00.000Z"
+	},
+	{
+		"id": 19,
+		"body": "Defense Against the Dark Arts classes have been so intense this year, but I've learned so much.",
+		"user_id": 1,
+		"post_id": 9,
+		"date": "2024-04-08T17:30:00.000Z"
+	},
+	{
+		"id": 20,
+		"body": "Exploring Hogwarts with the Marauder's Map would be a dream come true. There's so much to discover!",
+		"user_id": 2,
+		"post_id": 10,
+		"date": "2024-04-09T18:15:00.000Z"
+	}
+]

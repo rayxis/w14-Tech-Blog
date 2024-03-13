@@ -3,6 +3,18 @@ const res          = require('express/lib/response');
 const router       = require('express').Router();
 const {Post, User} = require('../models');
 
+// Date formatting
+const dateOptions = {
+	weekday: 'short',
+	year:    'numeric',
+	month:   'short',
+	day:     'numeric',
+	hour:    '2-digit',
+	minute:  '2-digit',
+	second:  '2-digit'
+};
+
+// Default page data for all pages.
 const pageData = {
 	title:  'Tech Blog',
 	css:    ['styles'],
@@ -14,23 +26,15 @@ const pageData = {
 	footer: 'Coded and designed by Ray Beliveau in 2024'
 };
 
+// Page routes
 router.get('/', async (req, res) => {
 	      // List all categories and include Product model.
 	      const postData = await Post.findAll({include: [{model: User}]});
 
 	      // Convert the Sequelize model instances into plain JavaScript objects.
 	      pageData.blogPosts = postData.map(post => {
-		      const options = {
-			      weekday: 'short',
-			      year:    'numeric',
-			      month:   'short',
-			      day:     'numeric',
-			      hour:    '2-digit',
-			      minute:  '2-digit',
-			      second:  '2-digit'
-		      };
 		      const postObj = post.get({plain: true});
-		      postObj.date  = (new Date(postObj.date)).toLocaleString('en-US', options);
+		      postObj.date  = (new Date(postObj.date)).toLocaleString('en-US', dateOptions);
 		      // Return the result
 		      return postObj;
 	      });
