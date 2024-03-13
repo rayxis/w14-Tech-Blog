@@ -1,8 +1,12 @@
+// Load the Router
 const router = require('express').Router();
-// const userRoutes = require('./userRoutes');
-// const projectRoutes = require('./projectRoutes');
-//
-// router.use('/users', userRoutes);
-// router.use('/projects', projectRoutes);
-
+// Define routes
+const routes = {
+	blog: require('./blog'),
+	user: require('./user')
+};
+// Use the routes
+router.use('/blog', routes.blog);
+router.use('/user', routes.user);
+// Export the router
 module.exports = router;

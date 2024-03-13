@@ -1,17 +1,23 @@
-const fs                    = require('fs').promises;
-const router                = require('express').Router();
-const {Comment, Post, User} = require('../models');
+// Required libraries
+const fs                       = require('fs').promises;
+const router                   = require('express').Router();
+// Models
+const {Comment, Post, User}    = require('../models');
+const {checkAuth, requireAuth} = require('./auth');
 
-const pageData      = {
+const pageData = {
 	title:  'Tech Blog',
 	css:    ['styles'],
+	js:     ['script','user'],
 	menu:   [
-		{name: 'Home', link: '/'},
-		{name: 'Login', link: '/login'},
-		{name: 'Logout', link: '/logout'}
+		{name: 'Home', link: '/', class: 'button-home'},
+		{name: 'Dashboard', link: '/', class: 'button-dashboard'},
+		{name: 'Login', link: '/login', class: 'button-login'},
+		{name: 'Logout', link: '/user/logout', class: 'button-logout'}
 	],
 	footer: 'Coded and designed by Ray Beliveau in 2024'
 };
+
 // Query Data for Blog Posts
 const blogQueryData = {
 	include: [
@@ -54,18 +60,21 @@ router.get('/', async (req, res) => {
 	      res.on('finish', () => {
 		      delete pageData.blogPosts;
 		      pageData.css.pop();
+		      pageData.js.pop();
 	      }).render('blog', pageData);
       })
 
 	// Query for specific blog post using ID and render the post page
 	  .get('/blog/:id', async (req, res) => {
 		  // Find the post using the id, include the user (sans password) for both the post and any comments.
-		  const postData         = await Post.findOne({
-			                                              where: {id: req.params.id},
-			                                              ...blogQueryData.blogPosts
-		                                              });
+		  const postData = await Post.findOne({
+			                                      where: {id: req.params.id},
+			                                      ...blogQueryData
+		                                      });
+
 		  // Format the date for the post and comments
-		  pageData.blog          = formatDate(postData.get({plain: true}));
+		  pageData.blog         = formatDate(postData.get({plain: true}));
+		  console.log(pageData);
 		  pageData.blog.comments = pageData.blog.comments.map(comment => formatDate(comment));
 		  pageData.css.push('blog');
 
@@ -77,16 +86,23 @@ router.get('/', async (req, res) => {
 	  })
 
 	// Renders the form for creating a new blog post
-	  .get('/blog-post', async (req, res) => {
+	  .get('/blog-post', checkAuth, requireAuth, async (req, res) => {
 		  pageData.css.push('blog-post');
+		  pageData.js.push('blog');
 		  pageData.form = JSON.parse(await fs.readFile('./views/data/blog-post.json', 'utf8'));
-		  res.render('form', pageData);
+		  res.on('finish', () => {
+			  delete pageData.form;
+			  pageData.css.pop();
+		  }).render('form', pageData);
 	  })
 
 	// Renders the form for login
 	  .get('/login', async (req, res) => {
 		  pageData.form = JSON.parse(await fs.readFile('./views/data/login.json', 'utf8'));
-		  res.render('form', pageData);
+		  res.on('finish', () => {
+			  delete pageData.form;
+			  pageData.js.pop();
+		  }).render('form', pageData);
 	  })
 
 	// Renders the form for registration

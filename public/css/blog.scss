@@ -1,14 +1,13 @@
 @use "values" as x; // Predefined values and settings
 
 .blog, .comments {
-	display:         flex;
-	flex-flow:       column nowrap;
-	align-items:     center;
-	justify-content: center;
-
-	gap:             map-get(x.$sizes, "xlarge");
-
-	font-family:     x.$font-main;
+	display:          flex;
+	flex-flow:        column nowrap;
+	align-items:      center;
+	justify-content:  center;
+	gap:              map-get(x.$sizes, "xlarge");
+	// Font
+	font-family:      x.$font-main;
 
 	&__post {
 		width:         500px;
@@ -16,6 +15,8 @@
 		border:        1px solid map-get(x.$colors, "border");
 		border-radius: map-get(x.$sizes, "small");
 		box-shadow:    map-get(x.$shadows, "medium-large");
+		// Color
+		background-color: map_get(x.$colors, "background");
 
 		&-header {
 			display:         flex;

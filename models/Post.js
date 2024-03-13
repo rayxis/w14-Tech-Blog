@@ -7,31 +7,32 @@ class Post extends Model {}
 Post.init(
 	{
 		// Post ID
-		id:      {
+		id: {
 			type:          DataTypes.INTEGER,
 			allowNull:     false,
 			primaryKey:    true,
 			autoIncrement: true
 		},
 		// Post Date
-		date:    {
+		date: {
 			type:         DataTypes.DATE,
 			allowNull:    false,
 			defaultValue: DataTypes.NOW
 		},
 		// Post Title
-		title:   {
+		title: {
 			type:      DataTypes.STRING,
 			allowNull: false
 		},
 		// Post Body
-		body:    {
+		body: {
 			type:      DataTypes.TEXT,
 			allowNull: false
 		},
 		// User
 		user_id: {
 			type:       DataTypes.INTEGER,
+			allowNull:  false,
 			references: {
 				model: 'user',
 				key:   'id'

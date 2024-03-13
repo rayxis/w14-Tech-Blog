@@ -13,6 +13,8 @@
 	width:           500px;
 	margin:          auto;
 	padding:         map-get(x.$sizes, "medium");
+	// Color
+	background-color: map_get(x.$colors, "background");
 	// Borders
 	border:          1px solid map-get(x.$colors, "border");
 	border-radius:   map-get(x.$sizes, "small");
