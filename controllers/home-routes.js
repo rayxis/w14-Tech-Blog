@@ -1,19 +1,42 @@
-const fs     = require('fs').promises;
-const res    = require('express/lib/response');
-const router = require('express').Router();
+const fs           = require('fs').promises;
+const res          = require('express/lib/response');
+const router       = require('express').Router();
+const {Post, User} = require('../models');
 
 const pageData = {
-	title: 'Tech Blog',
-	css:   ['styles'],
-	menu:  [
+	title:  'Tech Blog',
+	css:    ['styles'],
+	menu:   [
 		{name: 'Home', link: '/'},
 		{name: 'Login', link: '/login'},
 		{name: 'Logout', link: '/logout'}
-	]
+	],
+	footer: 'Coded and designed by Ray Beliveau in 2024'
 };
 
-router.get('/', (req, res) => {
-	      res.render('index', pageData);
+router.get('/', async (req, res) => {
+	      // List all categories and include Product model.
+	      const postData = await Post.findAll({include: [{model: User}]});
+
+	      // Convert the Sequelize model instances into plain JavaScript objects.
+	      pageData.blogPosts = postData.map(post => {
+		      const options = {
+			      weekday: 'short',
+			      year:    'numeric',
+			      month:   'short',
+			      day:     'numeric',
+			      hour:    '2-digit',
+			      minute:  '2-digit',
+			      second:  '2-digit'
+		      };
+		      const postObj = post.get({plain: true});
+		      postObj.date  = (new Date(postObj.date)).toLocaleString('en-US', options);
+		      // Return the result
+		      return postObj;
+	      });
+	      pageData.css.push('blog');
+	      // Render the page
+	      res.render('blog', pageData);
       })
       .get('/blog/:id', (req, res) => {
 	      res.render('login', pageData);

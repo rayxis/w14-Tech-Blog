@@ -2,22 +2,71 @@
 	{
 		"id": 1,
 		"date": "2024-03-11T15:56:46.000Z",
-		"title": "First Post",
-		"body": "This is the body of the first post.",
+		"title": "The Boy Who Lived",
+		"body": "Today, I embarked on a magical journey by starting to read the Harry Potter series. The first chapter, 'The Boy Who Lived', left me intrigued and excited. The mystery surrounding the survival of young Harry Potter from the curse of the darkest wizard of all time, Lord Voldemort, is fascinating. The chapter beautifully sets the stage for an enchanting series that promises a blend of magic, adventure, and the classic battle of good versus evil.",
 		"user_id": 1
 	},
 	{
 		"id": 2,
 		"date": "2024-03-12T15:56:46.000Z",
-		"title": "Second Post",
-		"body": "This is the body of the second post.",
+		"title": "Potions Class",
+		"body": "Today was a remarkable day as I brewed my first successful potion in Potions Class. Under the stern supervision of Professor Snape, we concocted the Boil Cure Potion. The process was intricate, requiring precise measurements and perfect timing. The satisfaction of seeing the potion turn a perfect shade of blue was unparalleled. It felt like I had unlocked a new level of understanding of the magical world.",
 		"user_id": 2
 	},
 	{
 		"id": 3,
 		"date": "2024-03-13T15:56:46.000Z",
-		"title": "Third Post",
-		"body": "This is the body of the third post.",
+		"title": "Quidditch Tryouts",
+		"body": "Today marked a significant milestone in my life at Hogwarts as I made it into the Gryffindor Quidditch team as a Seeker. The tryouts were intense, with each player showcasing their skills and determination. The moment I caught the Golden Snitch, cheers erupted from the stands. The feeling was surreal. I am thrilled about the upcoming matches and the opportunity to contribute to Gryffindor's glory.",
 		"user_id": 1
+	},
+	{
+		"id": 4,
+		"date": "2024-03-14T15:56:46.000Z",
+		"title": "Hagrid's Magical Creatures",
+		"body": "A visit to Hagrid's hut today turned into an unexpected adventure. Hagrid, with his immense love for magical creatures, introduced us to some of the most fascinating creatures. The highlight of the visit was meeting Buckbeak, the majestic Hippogriff. With its eagle-like head and horse-like body, Buckbeak was a sight to behold. The experience was a reminder of the endless wonders of the magical world.",
+		"user_id": 2
+	},
+	{
+		"id": 5,
+		"date": "2024-03-15T15:56:46.000Z",
+		"title": "Triwizard Tournament",
+		"body": "The return of the Triwizard Tournament to Hogwarts has filled the castle with a mix of excitement and apprehension. The tournament, known for its challenging tasks, tests the champions' magical prowess, intelligence, and courage. While the prospect of facing dragons, merpeople, and unknown dangers is daunting, the honor and glory that come with victory are enticing. As the Goblet of Fire prepares to choose the champions, the anticipation is palpable.",
+		"user_id": 1
+	},
+	{
+		"id": 6,
+		"date": "2024-03-16T15:56:46.000Z",
+		"title": "Dementor Encounter",
+		"body": "Today, I faced one of my most challenging experiences at Hogwarts - an encounter with a Dementor. Dementors, known for draining happiness, confronted us during a surprise Defence Against the Dark Arts class. The chilling cold and the overwhelming sense of despair were unlike anything I've ever experienced. However, with a strong focus and determination, I managed to conjure a Patronus, a defensive charm known to repel Dementors. It was a terrifying yet enlightening experience.",
+		"user_id": 2
+	},
+	{
+		"id": 7,
+		"date": "2024-03-17T15:56:46.000Z",
+		"title": "Time-Turner Adventures",
+		"body": "The Time-Turner, a magical device capable of time travel, has always intrigued me. Today, I had the opportunity to use it for the first time. The experience was exhilarating yet disorienting. Being in two places at once, seeing oneself in the past - it was a paradox hard to comprehend. However, the Time-Turner proved to be an invaluable tool, allowing me to attend multiple classes simultaneously and explore more of the magical world.",
+		"user_id": 1
+	},
+	{
+		"id": 8,
+		"date": "2024-03-18T15:56:46.000Z",
+		"title": "House Cup Victory",
+		"body": "The end of the term at Hogwarts is marked by the House Cup ceremony, a time-honored tradition that celebrates the achievements of all four houses. This year, Gryffindor emerged victorious! The Great Hall, adorned in Gryffindor colors, was filled with cheers and applause. The victory was a testament to our unity, hard work, and the indomitable spirit of Gryffindor. It was a moment of pride and joy that I will cherish forever.",
+		"user_id": 2
+	},
+	{
+		"id": 9,
+		"date": "2024-03-19T15:56:46.000Z",
+		"title": "Defense Against the Dark Arts",
+		"body": "Defense Against the Dark Arts, a vital subject at Hogwarts, equips us with knowledge and skills to defend against dark creatures and curses. Today's class was particularly interesting as we learned about various dark creatures and practiced powerful defensive spells. The practical approach of the class, coupled with the importance of the subject in the wizarding world, makes it one of the most engaging classes at Hogwarts.",
+		"user_id": 1
+	},
+	{
+		"id": 10,
+		"date": "2024-03-20T15:56:46.000Z",
+		"title": "The Marauder's Map",
+		"body": "The Marauder's Map, a magical document that reveals every inch of Hogwarts, fell into my hands today. The map, created by the infamous Marauders, is a masterpiece of magic, displaying every secret passage, room, and person within the castle. As I gazed at the intricate details on the parchment, I realized that Hogwarts was much more than a school; it was a living, breathing entity full of secrets waiting to be discovered.",
+		"user_id": 2
 	}
 ]

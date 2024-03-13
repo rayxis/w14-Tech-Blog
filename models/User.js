@@ -55,6 +55,14 @@ User.init({
 			          isAlpha: true
 		          }
 	          },
+	          // Last Name
+	          bio: {
+		          type:      DataTypes.STRING,
+		          allowNull: true,
+		          validate:  {
+			          isAlpha: true
+		          }
+	          },
 	          // Email
 	          email: {
 		          type:      DataTypes.STRING,

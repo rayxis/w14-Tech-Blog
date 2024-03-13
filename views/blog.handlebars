@@ -1,0 +1,12 @@
+<section class="blog">
+	{{#each blogPosts as |post|}}
+		<article class="blog__post">
+			<header class="blog__post-header">
+				<h2 class="blog__post-title">{{post.title}}</h2>
+				<div class="blog__post-author">{{post.user.first_name}} {{post.user.last_name}}</div>
+				<time class="blog__post-date">{{post.date}}</time>
+			</header>
+			<p class="blog__post-body">{{post.body}}</p>
+		</article>
+	{{/each}}
+</section>

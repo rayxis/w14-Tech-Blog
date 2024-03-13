@@ -16,6 +16,12 @@
 			"name":  "last_name"
 		},
 		{
+			"type":  "text",
+			"label": "Bio",
+			"id":    "bio",
+			"name":  "bio"
+		},
+		{
 			"type":  "email",
 			"label": "Email",
 			"id":    "email",

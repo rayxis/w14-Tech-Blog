@@ -1,23 +1,42 @@
 [
 	{
 		"id": 1,
-		"first_name": "John",
-		"last_name": "Doe",
-		"email": "john.doe@example.com",
-		"password": "password123"
+		"first_name": "Albus",
+		"last_name": "Dumbledore",
+		"email": "albus.dumbledore@hogwarts.com",
+		"password": "elderwand1",
+		"bio": "Headmaster of Hogwarts School of Witchcraft and Wizardry. Fond of lemon drops and Fawkes the phoenix."
 	},
 	{
 		"id": 2,
-		"first_name": "Jane",
-		"last_name": "Doe",
-		"email": "jane.doe@example.com",
-		"password": "password456"
+		"first_name": "Hermione",
+		"last_name": "Granger",
+		"email": "hermione.granger@hogwarts.com",
+		"password": "booksandcleverness",
+		"bio": "Gryffindor student, top of her class. Loves reading and is a loyal friend. Member of Dumbledore's Army."
 	},
 	{
 		"id": 3,
-		"first_name": "Bob",
-		"last_name": "Smith",
-		"email": "bob.smith@example.com",
-		"password": "password789"
+		"first_name": "Rubeus",
+		"last_name": "Hagrid",
+		"email": "rubeus.hagrid@hogwarts.com",
+		"password": "buckbeak4ever",
+		"bio": "Keeper of Keys and Grounds at Hogwarts. Has a soft spot for magical creatures, big and small."
+	},
+	{
+		"id": 4,
+		"first_name": "Minerva",
+		"last_name": "McGonagall",
+		"email": "minerva.mcgonagall@hogwarts.com",
+		"password": "transfiguration101",
+		"bio": "Head of Gryffindor House and Transfiguration professor. Strict but fair, with a love for all things Gryffindor."
+	},
+	{
+		"id": 5,
+		"first_name": "Severus",
+		"last_name": "Snape",
+		"email": "severus.snape@hogwarts.com",
+		"password": "alwayslily",
+		"bio": "Head of Slytherin House and Potions Master. Has a mysterious demeanor and a complicated past."
 	}
 ]

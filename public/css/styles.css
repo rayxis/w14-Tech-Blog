@@ -16,6 +16,12 @@
   font-size: 1.5rem;
 }
 
+.page-footer {
+  padding: 25px;
+  font-family: Oswald, sans-serif;
+  font-size: 0.7rem;
+}
+
 .menu {
   display: flex;
   flex-flow: row nowrap;
