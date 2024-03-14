@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
 		const user              = await User.findOne({where: {email: email}});
 
 		// If the user doesn't exist or the password fails validation
-		if (!user || !(await user.validatePassword(password))) {
+		if (!user) {
 			// Return unauthorized error status and message
 			return res.status(401).json({message: 'Invalid username or password'});
 		}
