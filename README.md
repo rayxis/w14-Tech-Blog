@@ -78,6 +78,11 @@ Link to the live application: https://tech--blog-3e22b6529126.herokuapp.com/
 
 ## Screenshots
 
+![Login](./screenshots/Screenshot%202024-03-13%20at%2011.31.11%E2%80%AFPM.png)
+![Register](./screenshots/Screenshot%202024-03-13%20at%2011.31.27%E2%80%AFPM.png)
+![Blog Post](./screenshots/Screenshot%202024-03-13%20at%2011.34.54%E2%80%AFPM.png)
+![Multiple Posts](./screenshots/Screenshot%202024-03-13%20at%2011.35.11%E2%80%AFPM.png)
+![Comments](./screenshots/Screenshot%202024-03-13%20at%2011.35.55%E2%80%AFPM.png)
 
 
 ## Credits
