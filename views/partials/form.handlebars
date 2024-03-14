@@ -8,7 +8,7 @@
 			{{#ifCond type '===' 'textarea'}}
 				<textarea class="form__textarea" id="{{id}}" name="{{name}}"></textarea>
 			{{else}}
-				<input class="{{class}} form__input" type="{{type}}" id="{{id}}" name="{{name}}"/>
+				<input class="{{class}} form__input" type="{{type}}" id="{{id}}" name="{{name}}" value="{{value}}"/>
 			{{/ifCond}}
 		</div>
 	{{/each}}

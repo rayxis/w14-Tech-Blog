@@ -87,7 +87,10 @@ router.get('/', async (req, res) => {
 		  // Format the date for the post and comments
 		  pageData.blog          = formatDate(postData.get({plain: true}));
 		  pageData.blog.comments = pageData.blog.comments.map(comment => formatDate(comment));
-		  pageData.form          = JSON.parse(await fs.readFile('./views/data/comment.json', 'utf8'));
+
+		  const form    = await fs.readFile('./views/data/comment.json', 'utf8');
+		  pageData.form = JSON.parse(form);
+		  pageData.form.fields.push({type: 'hidden', name: 'post_id', value: req.params.id});
 		  pageData.css.push('blog');
 		  pageData.css.push('blog-post');
 		  setMenu(req);

@@ -5,7 +5,10 @@ const { checkAuth, requireAuth } = require('../auth');
 router.post('/post', checkAuth, requireAuth, async (req, res) => {
 	try {
 		await Post.create({ ...req.body, user_id: req.session.user.id });
-		res.status(201).json({ message: 'Blog post successful' });
+		return res.status(200).json({
+			                            message:  'Blog post successful',
+			                            redirect: '/'
+		                            });
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
@@ -14,7 +17,10 @@ router.post('/post', checkAuth, requireAuth, async (req, res) => {
 router.post('/comment', checkAuth, async (req, res) => {
 	try {
 		await Comment.create({ ...req.body, user_id: req.session.user.id });
-		res.status(201).json({ message: 'Comment successful' });
+		return res.status(200).json({
+			                            message:  'Comment successful',
+			                            redirect: `/blog/${req.body.post_id}`
+		                            });
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
