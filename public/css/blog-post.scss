@@ -1,6 +1,8 @@
 @use "values" as x; // Predefined values and settings
 
-.blog-form .form {
+.blog-form,
+.comment-form {
+	& .form {
 		&__input-group {
 			flex-wrap: wrap;
 			gap:       map-get(x.$sizes, "small");
@@ -13,4 +15,5 @@
 			width:  inherit;
 			height: 200px;
 		}
+	}
 }

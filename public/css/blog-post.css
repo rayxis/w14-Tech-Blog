@@ -1,12 +1,15 @@
-.blog-form .form__input-group {
+.blog-form .form__input-group,
+.comment-form .form__input-group {
   flex-wrap: wrap;
   gap: 5px;
   width: 100%;
 }
-.blog-form .form__input {
+.blog-form .form__input,
+.comment-form .form__input {
   flex-grow: 1;
 }
-.blog-form .form__textarea {
+.blog-form .form__textarea,
+.comment-form .form__textarea {
   width: inherit;
   height: 200px;
 }

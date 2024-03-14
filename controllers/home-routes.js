@@ -8,18 +8,30 @@ const {checkAuth, requireAuth} = require('./auth');
 const pageData = {
 	title:  'Tech Blog',
 	css:    ['styles'],
-	js:     ['script','user'],
-	menu:   [
-		{name: 'Home', link: '/', class: 'button-home'},
-		{name: 'Dashboard', link: '/', class: 'button-dashboard'},
-		{name: 'Login', link: '/login', class: 'button-login'},
-		{name: 'Logout', link: '/user/logout', class: 'button-logout'}
-	],
+	js:     ['script', 'user', 'blog'],
+	menu:   undefined,
 	footer: 'Coded and designed by Ray Beliveau in 2024'
 };
 
+function setMenu(req) {
+	const menus = {
+		loggedIn:  [
+			{name: 'Home', link: '/', class: 'button-home'},
+			{name: 'Dashboard', link: '/dashboard', class: 'button-dashboard'},
+			{name: 'Logout', link: '/user/logout', class: 'button-logout'}
+		],
+		loggedOut: [
+			{name: 'Home', link: '/', class: 'button-home'},
+			{name: 'Login', link: '/login', class: 'button-login'}
+		]
+	};
+
+	pageData.menu = (req.session && req.session.user) ? menus.loggedIn : menus.loggedOut;
+}
+
 // Query Data for Blog Posts
 const blogQueryData = {
+	order:   [['id', 'DESC']],
 	include: [
 		{
 			model:      User,
@@ -55,12 +67,12 @@ router.get('/', async (req, res) => {
 	      // Format the date for the post
 	      pageData.blogPosts = postData.map(post => formatDate(post.get({plain: true})));
 	      pageData.css.push('blog');
+	      setMenu(req);
 
 	      // Clean up when finished
 	      res.on('finish', () => {
 		      delete pageData.blogPosts;
 		      pageData.css.pop();
-		      pageData.js.pop();
 	      }).render('blog', pageData);
       })
 
@@ -73,23 +85,28 @@ router.get('/', async (req, res) => {
 		                                      });
 
 		  // Format the date for the post and comments
-		  pageData.blog         = formatDate(postData.get({plain: true}));
-		  console.log(pageData);
+		  pageData.blog          = formatDate(postData.get({plain: true}));
 		  pageData.blog.comments = pageData.blog.comments.map(comment => formatDate(comment));
+		  pageData.form          = JSON.parse(await fs.readFile('./views/data/comment.json', 'utf8'));
 		  pageData.css.push('blog');
+		  pageData.css.push('blog-post');
+		  setMenu(req);
 
 		  // Clean up when finished
 		  res.on('finish', () => {
 			  delete pageData.blog;
+			  delete pageData.form;
+			  pageData.css.pop();
 			  pageData.css.pop();
 		  }).render('blog', pageData);
 	  })
 
 	// Renders the form for creating a new blog post
-	  .get('/blog-post', checkAuth, requireAuth, async (req, res) => {
+	  .get(['blog-post', '/dashboard'], checkAuth, requireAuth, async (req, res) => {
 		  pageData.css.push('blog-post');
-		  pageData.js.push('blog');
 		  pageData.form = JSON.parse(await fs.readFile('./views/data/blog-post.json', 'utf8'));
+		  setMenu(req);
+
 		  res.on('finish', () => {
 			  delete pageData.form;
 			  pageData.css.pop();
@@ -99,15 +116,18 @@ router.get('/', async (req, res) => {
 	// Renders the form for login
 	  .get('/login', async (req, res) => {
 		  pageData.form = JSON.parse(await fs.readFile('./views/data/login.json', 'utf8'));
+		  setMenu(req);
+
 		  res.on('finish', () => {
 			  delete pageData.form;
-			  pageData.js.pop();
 		  }).render('form', pageData);
 	  })
 
 	// Renders the form for registration
 	  .get('/register', async (req, res) => {
 		  pageData.form = JSON.parse(await fs.readFile('./views/data/register.json', 'utf8'));
+		  setMenu(req);
+
 		  res.render('form', pageData);
 	  });
 

@@ -1,0 +1,25 @@
+<form class="form {{form.class}}-form" method="POST">
+	<header class="form__header">
+		<h1 class="form__title">{{form.title}}</h1>
+	</header>
+	{{#each form.fields}}
+		<div class="form__input-group">
+			<label class="form__label" for="{{id}}">{{label}}</label>
+			{{#ifCond type '===' 'textarea'}}
+				<textarea class="form__textarea" id="{{id}}" name="{{name}}"></textarea>
+			{{else}}
+				<input class="{{class}} form__input" type="{{type}}" id="{{id}}" name="{{name}}"/>
+			{{/ifCond}}
+		</div>
+	{{/each}}
+	<div class="form__button-group">
+		{{#each form.buttons}}
+			<input class="{{class}}" type="{{type}}"/>
+		{{/each}}
+	</div>
+	{{#if form.footerLink}}
+		<section class="form__footer">
+			<a href="{{form.footerLink.href}}" class="{{form.footerLink.class}}">{{form.footerLink.text}}</a>
+		</section>
+	{{/if}}
+</form>

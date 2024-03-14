@@ -16,7 +16,12 @@ class User extends Model {
 	 * @returns {Promise<string>} Hashed password.
 	 */
 	static async hashPassword(password) {
-		return await bcrypt.hash(password, saltRounds);
+		try {
+			const salt = await bcrypt.genSalt(saltRounds);
+			return await bcrypt.hash(password, salt);
+		} catch (error) {
+			throw new Error('Hashing failed', error);
+		}
 	}
 
 	/**
@@ -25,8 +30,13 @@ class User extends Model {
 	 * @param {string} password - The plaintext password.
 	 * @returns {boolean} The result of comparing the hashed and plaintext passwords.
 	 */
-	checkPassword(password) {
-		return bcrypt.compareSync(password, this.password);
+	async checkPassword(password) {
+		try {
+			const match = await bcrypt.compare(password, this.password);
+			return match;
+		} catch (error) {
+			throw new Error('Comparison failed', error);
+		}
 	}
 }
 

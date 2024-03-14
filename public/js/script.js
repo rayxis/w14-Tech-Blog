@@ -10,18 +10,15 @@ async function apiCall(url, event = null) {
 		event.preventDefault();
 
 		if (event.type === 'submit') {
-			const formData = new FormData(event.target);
+			const formData   = new FormData(event.target);
 			const formValues = Object.fromEntries(formData.entries());
-			options.body = JSON.stringify(formValues);
+			options.body     = JSON.stringify(formValues);
 		}
 	}
 
 	const response = await fetch(url, options);
-
 	if (response.ok) {
 		const data = await response.json();
-		console.log(data);
-	} else {
-		console.log('error');
-	}
+		if (data.redirect) window.location = data.redirect;
+	} else console.log('error');
 }

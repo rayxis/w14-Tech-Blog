@@ -6,7 +6,7 @@
 		{
 			"type":  "textarea",
 			"label": "Comment",
-			"id":    "comment-body",
+			"id":    "body",
 			"name":  "body"
 		}
 	],
