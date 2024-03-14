@@ -2,15 +2,20 @@
 
 ## Description
 
-The aim of this project is to provide an interactive, seamless tech blog experience for users. The blog allows users 
-to publish articles, blog posts, thoughts, and comments. Users can sign up, login, logout, view posts by other authors, and interact by commenting on others' posts.
+The aim of this project is to provide an interactive, seamless tech blog experience for users. The blog allows users
+to publish articles, blog posts, thoughts, and comments. Users can sign up, login, logout, view posts by other authors,
+and interact by commenting on others' posts.
 
 ### Features
 
-* User Authentication: The blog provides a secure login and signup interface for users. The users' password data is securely hashed before being stored into the database ensuring a secure user experience.
-* Post Management: Users can create, view, update, and delete their posts. The user interface for managing posts is intuitive and user-friendly.
-* Commenting: The blog provides a platform for interactive communication where users can share their thoughts and comments on posts made by others.
-* Interactive User Interface: The blog has a clean, easy-to-use, and interactive interface, making the user experience intuitive.
+* User Authentication: The blog provides a secure login and signup interface for users. The users' password data is
+  securely hashed before being stored into the database ensuring a secure user experience.
+* Post Management: Users can create, view, update, and delete their posts. The user interface for managing posts is
+  intuitive and user-friendly.
+* Commenting: The blog provides a platform for interactive communication where users can share their thoughts and
+  comments on posts made by others.
+* Interactive User Interface: The blog has a clean, easy-to-use, and interactive interface, making the user experience
+  intuitive.
 
 ## User Story
 
@@ -58,7 +63,6 @@ WHEN I am idle on the site for more than a set time
 THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
 ```
 
-
 ## Installation
 
 The Tech Blog requires Node.js and a MySQL database.
@@ -72,7 +76,9 @@ The Tech Blog requires Node.js and a MySQL database.
 
 ## Usage
 
-The home page of the Tech Blog displays all the posts. Click on the `Login` button to create an account or login to an existing one. Once logged in, users can create a new blog post by clicking `Dashboard` and `Create Post`. Click on any post to view the post details and comments.
+The home page of the Tech Blog displays all the posts. Click on the `Login` button to create an account or login to an
+existing one. Once logged in, users can create a new blog post by clicking `Dashboard` and `Create Post`. Click on any
+post to view the post details and comments.
 
 Link to the live application: https://tech--blog-3e22b6529126.herokuapp.com/
 
@@ -84,6 +90,11 @@ Link to the live application: https://tech--blog-3e22b6529126.herokuapp.com/
 ![Multiple Posts](./screenshots/Screenshot%202024-03-13%20at%2011.35.11%E2%80%AFPM.png)
 ![Comments](./screenshots/Screenshot%202024-03-13%20at%2011.35.55%E2%80%AFPM.png)
 
+## Future Development
+
+In future versions, I would like to clean up the code quite a bit. A lot more time could be spent fine-tuning it. I 
+would like to add filtering comments and posts by user, and also visual scalability in the browser. I would also fix 
+the password hashing bug that I ran into with bcrypt because something is causing it not to hash the passwords properly.
 
 ## Credits
 
